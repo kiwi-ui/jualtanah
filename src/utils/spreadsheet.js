@@ -1,0 +1,2 @@
+export const webapp = 'https://script.google.com/macros/s/AKfycbyBiya6bOhkINJfCwGP9uZs3497R9qcDHFR6ucl7pR62YRfAdIN_-uC3GwFRs46h-DzXA/exec';
+export const deploymentId = 'AKfycbyBiya6bOhkINJfCwGP9uZs3497R9qcDHFR6ucl7pR62YRfAdIN_-uC3GwFRs46h-DzXA'; 

@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { webapp } from '../../utils/spreadsheet';
 import toast from 'react-hot-toast';
 
 export default function ContactModal() {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
-  const [contact, setContact] = useState(""); //  DIUBAH: Sekarang berupa string, bukan array []
+  const [contact, setContact] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const hasSeenModal = sessionStorage.getItem('hasSeenContactModal');
 
     if (!hasSeenModal) {
-      // Mengubah ke 15 detik (15000ms) sesuai request awal Anda, ganti ke 1000 jika untuk testing
       const timer = setTimeout(() => {
         setShowModal(true);
         sessionStorage.setItem('hasSeenContactModal', 'true');
-      }, 1000); 
+      }, 1500); 
 
       return () => clearTimeout(timer);
     }
@@ -27,10 +26,9 @@ export default function ContactModal() {
   if (!showModal) return null;
 
   const sendWish = async (e) => {
-    e.preventDefault(); // Menghentikan reload halaman submit bawaan HTML
+    e.preventDefault();
     setLoading(true);
-
-    // Sekarang validasi aman karena keduanya sudah pasti berupa string
+   
     if (!name.trim() || !contact.trim()) {
       toast.error("Masih ada data yang belum terisi");
       setLoading(false);
@@ -53,7 +51,7 @@ export default function ContactModal() {
       setName("");
       setContact("");
       toast.success("Data berhasil dikirim!");
-      closeModal(); // Menutup modal otomatis setelah sukses kirim data
+      closeModal();
     } catch (error) {
       toast.error(error.message);
     } finally {

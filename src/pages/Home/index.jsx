@@ -1,12 +1,11 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className="bg-light min-vh-100">
-      {/* 1. HERO SECTION (Search-Centric) */}
       <div 
         className="position-relative d-flex align-items-center justify-content-center text-white"
         style={{
@@ -74,7 +73,7 @@ export default function Home() {
                 alt="Kavling" 
               />
               <div className="card-img-overlay d-flex align-items-end p-3 bg-dark-gradient">
-                <h5 className="fw-bold mb-0">Tanah Kavling / Perumahan</h5>
+                <h5 className="fw-bold mb-0">Tanah Kavling</h5>
               </div>
             </Link>
           </div>

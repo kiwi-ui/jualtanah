@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { IoLogoWhatsapp } from "react-icons/io";
 
 export default function LandDetails() {
   const { id } = useParams(); // Mengambil ID dari URL
@@ -101,10 +102,20 @@ export default function LandDetails() {
             <h4 className="fw-bold border-bottom pb-2 mb-4">Lokasi</h4>
             {/* Tempat untuk Embed Map */}
             <div className="bg-secondary bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center" style={{ height: '350px' }}>
-              <div className="text-center text-muted">
+              {/* <div className="text-center text-muted">
                 <i className="bi bi-map-fill fs-1"></i>
                 <p className="mt-2">Google Maps Embed View di Sini</p>
-              </div>
+              </div> */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4391632731835!2d112.61313427588301!3d-7.953457192071064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827914bf6893%3A0x6b77242c4b8e2b83!2sInstitut%20Teknologi%20Sepuluh%20Nopember!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid"
+                style={{ border: 0 }}
+                height="100%"
+                width="100%"
+                allowFullScreen="true"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Lokasi Lahan Tanah"
+              ></iframe>
             </div>
           </div>
 
@@ -114,15 +125,22 @@ export default function LandDetails() {
               <h5 className="fw-bold mb-1">Tertarik dengan Lahan ini?</h5>
               <p className="text-muted small mb-4">Hubungi penjual untuk menjadwalkan survei lokasi.</p>
               
-              <div className="d-flex align-items-center mb-4">
-                <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=random" className="rounded-circle me-3" width="50" alt="Agen" />
-                <div>
+              <div className="row mb-4">
+                <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=random" className="rounded-circle col-3 col-md-2 col-lg-3"  alt="Agen" />
+                <div className="col-5 col-md-7 col-lg-4">
                   <h6 className="fw-bold mb-0">Budi Santoso</h6>
-                  <span className="badge bg-primary mt-1">Agen Terverifikasi</span>
+                  <span className="badge bg-primary mt-1">Pemilik</span>
+                </div>
+
+                <div className="col-4 col-md-2">
+                  <a href="https://wa.me/628123456789" className="badge bg-success text-decoration-none" target="_blank" rel="noopener noreferrer" style={{ paddingBottom: "0.21rem"}}>
+                    <IoLogoWhatsapp className="me-1" />
+                    Hubungi
+                  </a>
                 </div>
               </div>
 
-              <form>
+              {/* <form>
                 <div className="mb-3">
                   <input type="text" className="form-control" placeholder="Nama Lengkap" />
                 </div>
@@ -139,7 +157,7 @@ export default function LandDetails() {
                 <button type="button" className="btn btn-outline-success w-100 fw-bold py-2">
                   <i className="bi bi-whatsapp me-2"></i> Chat WhatsApp
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
 

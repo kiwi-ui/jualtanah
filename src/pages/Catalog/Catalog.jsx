@@ -1,17 +1,10 @@
 import { Link } from "react-router-dom";
-
-// Data Dummy Tanah
-const dummyLands = [
-  { id: 1, title: 'Kavling Premium Cluster A', price: 'Rp 450 Juta', size: '120 m²', cert: 'SHM', loc: 'Kec. Sukolilo, Surabaya', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=400' },
-  { id: 2, title: 'Lahan Basah Produktif Luas', price: 'Rp 1.2 Milyar', size: '1.500 m²', cert: 'SHM', loc: 'Jember, Jawa Timur', img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=400' },
-  { id: 3, title: 'Tanah Komersial Nol Jalan Raya', price: 'Rp 3.5 Milyar', size: '600 m²', cert: 'HGB', loc: 'Pamekasan, Madura', img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=400' },
-];
+import { dummyLands } from "../../utils/dummyLands";
 
 export default function Catalog() {
   return (
     <div className="container-fluid p-0 d-flex flex-column" style={{ height: '100vh', overflow: 'hidden' }}>
-      
-      <div className="bg-white border-bottom p-3 d-flex flex-wrap gap-2 align-items-center z-3 shadow-sm">
+      {/* <div className="bg-white border-bottom p-3 d-flex flex-wrap gap-2 align-items-center z-3 shadow-sm">
         <input type="text" className="form-control form-control-sm w-auto" placeholder="Surabaya, Jawa Timur" />
         <select className="form-select form-select-sm w-auto">
           <option>Semua Harga</option>
@@ -23,26 +16,23 @@ export default function Catalog() {
           <option>SHM</option>
           <option>HGB / Girik</option>
         </select>
-        {/* <button className="btn btn-outline-dark btn-sm ms-auto">
+        <button className="btn btn-outline-dark btn-sm ms-auto">
           <i className="bi bi-sliders me-1"></i> Filter Lanjutan
-        </button> */}
-      </div>
-
+        </button>
+      </div> */}
       <div className="d-flex flex-grow-1 position-relative" style={{ overflow: 'hidden' }}>
-        
         <div className="col-12 col-lg-7 h-100 p-4 bg-light" style={{ overflowY: 'auto' }}>
-          <div className="d-flex justify-content-between align-items-center mb-3">
+          {/* <div className="d-flex justify-content-between align-items-center mb-3">
             <h5 className="fw-bold mb-0 text-secondary">3 Lahan Tersedia</h5>
             <select className="form-select form-select-sm w-auto border-0 bg-transparent fw-semibold">
               <option>Urutkan: Terbaru</option>
               <option>Harga: Rendah ke Tinggi</option>
             </select>
-          </div>
+          </div> */}
 
           <div className="row g-4">
             {dummyLands.map((land) => (
             <div className="col-md-6" key={land.id}>
-              {/* Bungkus dengan Link */}
               <Link to={`/detail/${land.id}`} className="text-decoration-none">
                 <div className="card h-100 border-0 shadow-sm rounded-3 overflow-hidden position-relative card-land hover-up">
                   <span className="badge bg-dark position-absolute top-0 start-0 m-3 z-2 px-2 py-1.5">{land.cert}</span>
@@ -76,9 +66,11 @@ export default function Catalog() {
         <div className="d-none d-lg-block col-lg-5 h-100 bg-secondary-subtle position-relative">
           {/* Sisi ini nantinya dipasang Google Maps / Mapbox SDK */}
           <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-muted">
-            <i className="bi bi-map fs-1 mb-2"></i>
-            <p className="fw-semibold">Integrasi Peta Interaktif</p>
-            <span className="small text-center px-4">Disini area render koordinat bounds SVG / Mapbox API</span>
+            <iframe 
+              src="https://www.google.com/maps/d/embed?mid=10yy2L88bekAZZMZL-SemK2RWd_-SDO8&ehbc=2E312F&noprof=1" 
+              width="100%" 
+              height="100%">   
+            </iframe>
           </div>
         </div>
 

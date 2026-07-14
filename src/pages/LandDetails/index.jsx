@@ -4,9 +4,6 @@ import { IoLogoWhatsapp } from "react-icons/io";
 export default function LandDetails() {
   const { id } = useParams(); // Mengambil ID dari URL
 
-  // Di aplikasi nyata, Anda akan fetch data dari API berdasarkan ID ini.
-  // Untuk sekarang, kita pakai data statis.
-
   return (
     <div className="bg-light min-vh-100 pb-5">
       {/* 1. HEADER: Harga & Info Singkat */}

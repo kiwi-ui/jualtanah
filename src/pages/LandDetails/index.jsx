@@ -1,8 +1,20 @@
 import { useParams, Link } from 'react-router-dom';
 import { IoLogoWhatsapp } from "react-icons/io";
+import { dummyLands } from '../../utils/dummyLands';
 
 export default function LandDetails() {
   const { id } = useParams(); // Mengambil ID dari URL
+  const land = dummyLands.find((land) => land.id === parseInt(id))
+  
+  if (!land) {
+    return (
+      <div className="container text-center py-5 my-5">
+        <h3 className="text-danger fw-bold mb-3">Lahan Tidak Ditemukan</h3>
+        <p className="text-muted">Katalog tanah yang Anda cari mungkin sudah laku atau salah alamat.</p>
+        <Link to="/" className="btn btn-primary rounded-pill px-4">Kembali Cari Tanah</Link>
+      </div>
+    )
+  }
 
   return (
     <div className="bg-light min-vh-100 pb-5">
@@ -14,13 +26,13 @@ export default function LandDetails() {
           </Link>
           <div className="row align-items-end">
             <div className="col-md-8">
-              <h1 className="fw-bold mb-1">Rp 1.200.000.000</h1>
+              <h1 className="fw-bold mb-1">{land.price}</h1>
               <div className="d-flex gap-4 fw-semibold text-dark mb-2 fs-5">
-                <span><i className="bi bi-fullscreen text-muted me-1"></i> 1.500 m²</span>
-                <span><i className="bi bi-file-earmark-text text-muted me-1"></i> SHM</span>
-                <span><i className="bi bi-signpost text-muted me-1"></i> Zona Komersial</span>
+                <span><i className="bi bi-fullscreen text-muted me-1"></i> {land.size}</span>
+                <span><i className="bi bi-file-earmark-text text-muted me-1"></i> {land.cert}</span>
+                <span><i className="bi bi-signpost text-muted me-1"></i> {land.loc}</span>
               </div>
-              <p className="text-muted mb-0 fs-5">Jl. Raya Sukolilo No 45, Kec. Sukolilo, Surabaya, Jawa Timur</p>
+              <p className="text-muted mb-0 fs-5">{land.address}</p>
             </div>
             {/* <div className="col-md-4 text-md-end mt-3 mt-md-0">
               <button className="btn btn-outline-dark fw-semibold me-2">
@@ -40,7 +52,7 @@ export default function LandDetails() {
           {/* Gambar Utama (Kiri) */}
           <div className="col-md-8">
             <img 
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200" 
+              src={land.img1}
               className="w-100 rounded-start-3" 
               style={{ height: '400px', objectFit: 'cover' }} 
               alt="Lahan Utama" 
@@ -49,13 +61,13 @@ export default function LandDetails() {
           {/* Gambar Kecil (Kanan) */}
           <div className="col-md-4 d-flex flex-column gap-2">
             <img 
-              src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=600" 
+              src={land.img2}
               className="w-100 rounded-end-top-3" 
               style={{ height: '196px', objectFit: 'cover' }} 
               alt="Lahan Sudut 1" 
             />
             <img 
-              src="https://images.unsplash.com/photo-1594498653385-d527259017ef?q=80&w=600" 
+              src={land.img3}
               className="w-100 rounded-end-bottom-3" 
               style={{ height: '196px', objectFit: 'cover' }} 
               alt="Lahan Sudut 2" 
@@ -72,39 +84,34 @@ export default function LandDetails() {
           <div className="col-lg-8">
             <h4 className="fw-bold border-bottom pb-2 mb-4">Tentang Lahan Ini</h4>
             <p className="text-muted" style={{ lineHeight: '1.8' }}>
-              Lahan strategis di area berkembang Surabaya Timur. Sangat cocok untuk dibangun perumahan cluster atau pergudangan. Lokasi nol jalan raya provinsi dengan akses kontainer 40 feet. Tanah sudah padat dan siap bangun, bebas banjir.
+              {land.desc}
             </p>
             <p className="text-muted" style={{ lineHeight: '1.8' }}>
-              Legalitas aman, Sertifikat Hak Milik (SHM) on hand, PBB lunas, dan tata ruang wilayah (RTRW) sudah masuk zona kuning/komersial.
+              {land.desc2}
             </p>
 
             <h4 className="fw-bold border-bottom pb-2 mt-5 mb-4">Fakta & Fitur</h4>
             <div className="row g-3 mb-5">
               <div className="col-md-6">
                 <ul className="list-unstyled text-muted">
-                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Luas Tanah:</strong> 1.500 m²</li>
-                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Dimensi:</strong> 30m x 50m</li>
-                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Hadap:</strong> Selatan</li>
+                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Luas Tanah:</strong> {land.size}</li>
+                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Dimensi:</strong> {land.dimension}</li>
+                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Hadap:</strong> {land.face}</li>
                 </ul>
               </div>
               <div className="col-md-6">
                 <ul className="list-unstyled text-muted">
-                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Sertifikat:</strong> SHM</li>
-                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Akses Jalan:</strong> Aspal 8 Meter</li>
-                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Kondisi Tanah:</strong> Datar, Siap Bangun</li>
+                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Sertifikat:</strong> {land.cert}</li>
+                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Akses Jalan:</strong> {land.roadAccess}</li>
+                  <li className="mb-2"><i className="bi bi-check-circle-fill text-success me-2"></i><strong>Kondisi Tanah:</strong> {land.landCondition}</li>
                 </ul>
               </div>
             </div>
 
             <h4 className="fw-bold border-bottom pb-2 mb-4">Lokasi</h4>
-            {/* Tempat untuk Embed Map */}
             <div className="bg-secondary bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center" style={{ height: '350px' }}>
-              {/* <div className="text-center text-muted">
-                <i className="bi bi-map-fill fs-1"></i>
-                <p className="mt-2">Google Maps Embed View di Sini</p>
-              </div> */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4391632731835!2d112.61313427588301!3d-7.953457192071064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827914bf6893%3A0x6b77242c4b8e2b83!2sInstitut%20Teknologi%20Sepuluh%20Nopember!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid"
+                src={land.location}
                 style={{ border: 0 }}
                 height="100%"
                 width="100%"
@@ -162,4 +169,5 @@ export default function LandDetails() {
       </div>
     </div>
   );
+  
 }

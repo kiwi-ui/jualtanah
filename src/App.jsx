@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/dvt7">
       {/* NAVBAR GLOBAL (Selalu muncul di semua halaman) */}
       <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm px-3">
         <div className="container-fluid">

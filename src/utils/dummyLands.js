@@ -7,7 +7,7 @@ export const dummyLands = [
     size: '120 m²',
     dimension: '20 x 40 m', 
     face: 'Selatan',
-    cert: 'SHM', 
+    cert: 'SM', 
     loc: 'Kec. Pamekasan, Jawa Timur', 
     address: 'Jl. Raya Sukolilo No 45, Kec. Sukolilo, Surabaya, Jawa Timur',
     roadAccess: 'Aspal 8 Meter',

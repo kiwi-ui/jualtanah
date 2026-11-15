@@ -1,5 +1,8 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
-    ]
+  "rewrites": [
+    {
+      "source": "/jualtanah",
+      "destination": "https://jualtanah-hr0pw5dba-kiwiui1s-projects.vercel.app"
+    }
+  ]
 }
